@@ -15,6 +15,7 @@ class AppText {
   //? Commit to use
   static const String skip = "تخطي";
   static const String back = "عودة";
+   static const String select = "تحديد";
 
   //? User Type Selection
   static const String title = "عشان نعرف نسهّل عليك أكثر...";
@@ -53,16 +54,30 @@ class AppText {
   static const String countryCode6 = "PH";
   static const String localeCode6 = "tl";
 
-  //? Login Screen
-  static const String welcomeBack = "مرحباً بعودتك!";
-  static const String loginTitle = "تسجيل الدخول";
-  static const String email = "البريد الإلكتروني";
-  static const String password = "كلمة المرور";
-  static const String login = "تسجيل الدخول";
-  static const String username = " اسم المستخدم";
-  static const String noAccount = "ليس لديك حساب؟ سجل الآن";
-
+  //!Auth Sender
   //? Signup Screen
+  static const String signupTitle = "تسجيل الدخول كمُرسل";
+  static const String signupSubTitle =
+      """معك خطوة بخطوة لتسهيل تحويل الرواتب ومتابعة العمالة.""";
+  static const String phoneNum = "رقم الجوال";
+  static const String phoneNumHint = "أدخل رقم الجوال";
+  static const String nationalId = "رقم الهوية";
+  static const String nationalIdHint = "رقم الهوية";
+  static const String date = "تاريخ الميلاد";
+  static const String dayHint = "اليوم";
+  static const String monthHint = "الشهر";
+  static const String yearHint = "السنة";
+  static const String register = "تسجيل";
+  static const String login = "تسجيل الدخول";
+  static const String account = " لديك حساب؟";
+
+  //?OTP
+  static const String smsTitle = "أدخل الرمز المرسل عبر SMS";
+  static const String smsSubtitle =
+      "تم إرسال رمز التحقق إلى رقم الجوال ****054";
+  static const String confirm = "تأكيد";
+
+  //? Login Screen
   static const String welcome = "أهلاً بك !";
   static const String createAccount = "إنشاء حساب";
   static const String forgetMyPassword = "نسيت كلمة المرور؟";
@@ -73,4 +88,22 @@ class AppText {
   static const String otpSubTitle =
       """تم إرسال رمز التحقق لمرة واحدة إلى بريدك الإلكتروني .يرجى إدخاله لإكمال عملية التحقق""";
   static const String resend = "إعادة إرسال الرمز";
+
+  //? Nav Page
+  static const String home = "الرئيسية";
+  static const String employees = "العاملين";
+  static const String documents = "الوثائق";
+
+  //? Home Page
+  static const String eligibleAmount = "المبلغ المستحق";
+  // static const String currencySymbol = "";
+  static const String completedTransfers = "التحويلات المنجزة";
+  static const String fromTotal = "من أصل";
+  static const String importantAlerts = "تنبيهات مهمة";
+  static const String iqamaExpired = "●  انتهت إقامة ";
+  static const String quickSend = "الارسال السريع";
+  static const String add = "إضافة";
+  static const String transfers = "التحويلات";
+  static const String more = "المزيد";
+  
 }

@@ -18,6 +18,7 @@ class CustomIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       padding: EdgeInsets.zero,
+      constraints: const BoxConstraints(),
       onPressed: onPressed,
       icon: Icon(icon, color: color ?? AppPalette.black, size: size ?? 24),
     );

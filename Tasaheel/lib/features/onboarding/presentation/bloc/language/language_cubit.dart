@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasaheel/features/onboarding/data/models/language_option_model.dart';
@@ -14,8 +15,12 @@ class LanguageCubit extends Cubit<Locale> {
   }
 
   /// تغيير اللغة وحفظها
-  Future<void> changeLanguage(LanguageOptionModel option) async {
-    languageRepo.getLanguages();
+  Future<void> changeLanguage(
+    BuildContext context,
+    LanguageOptionModel option,
+  ) async {
+    languageRepo.saveSelectedLanguage(option.localeCode);
+    await context.setLocale(Locale(option.localeCode));
     emit(Locale(option.localeCode));
   }
 }

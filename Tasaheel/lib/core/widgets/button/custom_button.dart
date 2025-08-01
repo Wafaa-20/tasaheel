@@ -12,6 +12,8 @@ class CustomButton extends StatelessWidget {
     this.sideColor,
     this.padding,
     this.borderRadius,
+    this.withContainer = true,
+    this.shapeCircle = false,
   });
   final void Function()? onPressed;
   final Widget child;
@@ -21,22 +23,43 @@ class CustomButton extends StatelessWidget {
   final double? height;
   final EdgeInsetsGeometry? padding;
   final BorderRadiusGeometry? borderRadius;
+  final bool withContainer;
+  final bool shapeCircle;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: borderRadius ?? BorderRadiusGeometry.circular(30),
-          side: BorderSide(color: sideColor ?? AppPalette.yellow, width: 2),
-        ),
-        padding: padding ?? EdgeInsets.zero,
-        backgroundColor: color ?? AppPalette.yellow,
-        foregroundColor: AppPalette.grayPrimary,
-        fixedSize: Size(width ?? 200, height ?? 44),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: withContainer ? BorderRadius.circular(18) : null,
+        gradient: withContainer
+            ? LinearGradient(
+                colors: [AppPalette.yellowLight, AppPalette.yellow],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              )
+            : null,
       ),
-      child: child,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          shape: shapeCircle
+              ? CircleBorder()
+              : RoundedRectangleBorder(
+                  borderRadius:
+                      borderRadius ?? BorderRadiusGeometry.circular(18),
+                  side: BorderSide(
+                    color: sideColor ?? AppPalette.transparent,
+                    width: 2,
+                  ),
+                ),
+          padding: padding ?? EdgeInsets.zero,
+          backgroundColor: color ?? AppPalette.transparent,
+          shadowColor: AppPalette.transparent,
+          foregroundColor: AppPalette.whiteLight,
+          fixedSize: Size(width ?? 240, height ?? 48),
+        ),
+        child: child,
+      ),
     );
   }
 }

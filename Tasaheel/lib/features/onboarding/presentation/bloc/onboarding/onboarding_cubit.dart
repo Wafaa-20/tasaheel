@@ -7,28 +7,57 @@ import 'package:tasaheel/features/onboarding/presentation/bloc/onboarding/onboar
 
 class OnboardingCubit extends Cubit<OnboardingState> {
   final OnboardingRepository onboardingRepo;
-
   final pageController = PageController();
   final getItData = GetIt.I.get<LocalStorage>();
 
   OnboardingCubit(this.onboardingRepo)
-    : super(OnboardingPageState(currentPage: 0));
+    : super(
+        const OnboardingPageState(
+          currentPage: 0,
+          selectedType: UserType.sender,
+        ),
+      );
+
   void nextPage() {
-    final next = (state as OnboardingPageState).currentPage + 1;
+    final current = state as OnboardingPageState;
+    final next = current.currentPage + 1;
+
     pageController.nextPage(
       duration: Duration(milliseconds: 300),
       curve: Curves.easeIn,
     );
-    emit(OnboardingPageState(currentPage: next));
+
+    emit(
+      OnboardingPageState(
+        currentPage: next,
+        selectedType: current.selectedType,
+      ),
+    );
   }
 
   void previousPage() {
-    final prev = (state as OnboardingPageState).currentPage - 1;
+    final current = state as OnboardingPageState;
+    final prev = current.currentPage - 1;
+
     pageController.previousPage(
       duration: Duration(milliseconds: 300),
       curve: Curves.easeIn,
     );
-    emit(OnboardingPageState(currentPage: prev));
+
+    emit(
+      OnboardingPageState(
+        currentPage: prev,
+        selectedType: current.selectedType,
+      ),
+    );
+  }
+
+  void select(UserType type) {
+    final current = state as OnboardingPageState;
+
+    emit(
+      OnboardingPageState(currentPage: current.currentPage, selectedType: type),
+    );
   }
 
   void completeOnboarding() {

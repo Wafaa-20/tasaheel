@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasaheel/core/text/text_styles.dart';
-
+import 'package:tasaheel/core/themes/app_palette.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
@@ -17,7 +17,10 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: Text(text, style: styles ?? TextStyles.sf70020),
+      child: Text(
+        text,
+        style: styles ?? TextStyles.sf40016.copyWith(color: AppPalette.grey),
+      ),
     );
   }
 }

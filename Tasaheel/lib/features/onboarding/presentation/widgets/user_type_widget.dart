@@ -23,13 +23,16 @@ class UserTypeWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: onTap,
+            splashColor: AppPalette.transparent,
+            highlightColor: AppPalette.transparent,
+            hoverColor: AppPalette.transparent,
             child: Container(
               height: 152,
               width: 152,
               decoration: BoxDecoration(
                 color: isSleeted
                     ? AppPalette.yellowSurface
-                    : AppPalette.grayLight,
+                    : AppPalette.greyLight,
                 shape: BoxShape.circle,
               ),
               child: ClipRRect(
@@ -37,7 +40,7 @@ class UserTypeWidget extends StatelessWidget {
                 child: Image.asset(
                   imagePath,
                   fit: BoxFit.contain,
-                  color: isSleeted ? null : AppPalette.grayLight,
+                  color: isSleeted ? null : AppPalette.greyLight,
                   colorBlendMode: BlendMode.saturation,
                 ),
               ),

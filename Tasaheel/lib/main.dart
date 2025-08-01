@@ -24,9 +24,13 @@ void main() async {
       ],
       path: 'assets/translations',
       fallbackLocale: Locale('ar'),
-      startLocale: Locale('ar'),
-      child: BlocProvider(
-        create: (_) => LanguageCubit(GetIt.I())..loadSavedLanguage(),
+      startLocale: Locale('ar'), 
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => LanguageCubit(GetIt.I())..loadSavedLanguage(),
+          ),
+        ],
         child: const MyApp(),
       ),
     ),
